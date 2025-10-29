@@ -4,16 +4,13 @@ from typing import List, Optional
 # ------------------ Message Schemas ------------------ #
 class MessageBase(BaseModel):
     content: str
-    owner: str
 
 class MessageCreate(MessageBase):
     content: str  # associate a new message with a user
-    owner: str
 
 class MessageResponse(MessageBase):
     content: str
-    owner: str
-    
+
     class Config:
         orm_mode = True
 
@@ -22,6 +19,7 @@ class MessageResponse(MessageBase):
 
 class UserBase(BaseModel):
     username: str
+    email: EmailStr
 
 class UserCreate(UserBase):
     password: str
